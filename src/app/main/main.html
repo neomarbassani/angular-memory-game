@@ -1,0 +1,22 @@
+<div layout="vertical" layout-fill>
+
+  <md-content>
+    <section class="jumbotron">
+      <div>
+        <strong>Time: </strong>{{main.timer | date:"mm:ss"}}
+      </div>
+      <div>
+        <strong>Moves: </strong> {{main.moves}} 
+      </div>
+      <center>
+        <div>
+          <div class="start" ng-hide="main.running">
+            <a ng-click="main.start()">Start</a>
+          </div>
+          <div class="card" ng-repeat="option in main.options"  ng-click="main.select(option)" ng-class="{'running': main.running}">
+            <img ng-src="assets/images/{{option.url}}" ng-class="{'show': option.selected}">
+          </div>
+        </div>
+      </center>
+    </section>
+</div>
